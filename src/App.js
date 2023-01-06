@@ -9,6 +9,15 @@ function App() {
   const [pokemons, setPokemons] = useState([])
   const [filteredPokemons, setFilteredPokemons] = useState([])
 
+  useEffect(() =>{
+    fetch(pokeApi)
+    .then((res) => res.json())
+    .then((data) =>{
+      setPokemons(data.results);
+      setFilteredPokemons(data.results);
+    });
+  }, []);
+
   return (
     <div data-testid="app">
       <Navigation />
