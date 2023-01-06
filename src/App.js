@@ -36,9 +36,15 @@ const regex = new RegExp(value, 'gi')
         aria-label="Search"
         aria-describedby="basic-addon1" />
       </InputGroup>
-
       <h1>Pokemon should appear here</h1>
-      <PokemonCard />
+      <Container>
+        <Row className='row-auto'>
+          <Col className='col-auto'>
+          {filteredPokemons.map((p,index) => <PokemonCard filteredPokemons ={filteredPokemons} key={index} name={p.name} url={p.url}/>)}
+          </Col>
+        </Row>
+      </Container>
+    
     </div>
   );
 }
