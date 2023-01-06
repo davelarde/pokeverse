@@ -26,6 +26,12 @@ function onChange(e){
 const value= e.target.value
 // console.log(value)
 const regex = new RegExp(value, 'gi')
+const filtered = pokemons.filter((p) =>{
+  return p.name.match(regex)
+});
+setFilteredPokemons(()=>{
+  return filtered
+});
 }
   return (
     <div data-testid="app">
