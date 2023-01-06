@@ -30,7 +30,12 @@ const regex = new RegExp(value, 'gi')
   return (
     <div data-testid="app">
       <Navigation />
-      
+      <InputGroup className='mb-3' onChange={onChange}>
+        <Form.Control 
+        placeholder="Search"
+        aria-label="Search"
+        aria-describedby="basic-addon1" />
+      </InputGroup>
 
       <h1>Pokemon should appear here</h1>
       <PokemonCard />
