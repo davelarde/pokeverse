@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Card from "react-bootstrap/Card"
 
 function PokemonCard({ url, name, setPokemons, filteredPokemons }) {
   const [urlData, setUrlData] = useState([])
@@ -10,11 +11,19 @@ function PokemonCard({ url, name, setPokemons, filteredPokemons }) {
     });
   },[filteredPokemons]);
   
-
+let abilities = urlData.abilities;
   return (
-    <div>
+    <>
+    <Card>
+      <Card.Img style={{ width: "100px" }} src={urlData.sprites?.front_default} />
+      <Card.Body>
+        <Card.Title>{urlData.name}</Card.Title>
+        <Card.Text as='div'><ul>{abilities && abilities.map((a, index) => <li key= {index}>{a.ability.name}</li>)}</ul></Card.Text>
+      </Card.Body>
+    </Card><div>
         pokemon card
-    </div>
+      </div>
+      </>
   );
 }
 
